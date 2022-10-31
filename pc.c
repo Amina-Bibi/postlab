@@ -1,4 +1,4 @@
-#include<stdio.h>
+ #include<stdio.h>
 int main()
 {
     int a[100]={0};
@@ -8,33 +8,43 @@ int main()
     while(n!=3){
     printf("Type 1 for \"first class\"\nType 2 for \"economy class\"\n");
     printf("Enter 3 to exit\n");
+    
     printf("Select type of class:");
-    scanf("%d",&n);
-    while((n!=1) && (n!=2) && (n!=3)){
+    scanf("%d",&n);//taking input for choosing class
+    while((n!=1) && (n!=2) && (n!=3))
+	{
     printf("Enter valid  id ");
     scanf("%d",&n);
     }
     if(n==1){
-    printf("Select seat number (1-30): ");
+    printf("Select seat number (1-30): ");//taking inpu for class 1
+    
     scanf("%d", &s);
-   
+    while(((s>30) || (s<1)) ||(a[s]==1))//seat validation for class 1
+	{
     	if(a[s]==1)
-     	   printf("Sorry Not available Enter another seat number\n");
+     	   printf("Sorry Not available Enter another seat number: ");
      	   else
-   
-	printf("\tBoarding Pass\nClass:\"First\"\nSeat number: %d\n",s); 
-	 a[s]=1;
-}
+    printf("Enter between 1-30: ");
+    	scanf("%d",&s);	
+	}
+    a[s]=1; 
+	printf("Class:\"First\"\nSeat number: %d\n",s); 
+    }
     else if(n==2){
-    printf("Select seat number (31-100):");
+    printf("Select seat number (31-100):");//taking input for class 2 
     scanf("%d", &s);
-  
+     while(((s>100) || (s<31)) ||(a[s]==1))//seat validation for class 2
+	 {
      	if(a[s]==1)
-     	   printf("Sorry Not available \n");
-     
-  else
-    	printf("\tBoarding Pass\nClass:\"First\"\nSeat number: %d\n",s); 
-    	 a[s]=1;
+     	   printf("Sorry Not available Enter another seat number: ");
+     	   else
+     printf("Enter between 31-100: ");
+    	scanf("%d",&s);	
+	}
+  
+    a[s]=1;
+    	printf("Class:\"Economy\"\nSeat number: %d\n",s); 
     
 }
 }
